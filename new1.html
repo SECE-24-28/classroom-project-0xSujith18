@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+    <div class="card">
+      <form id="newForm">
+        <div>
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" required />
+        </div>
+<br>
+        <div>
+          <label for="address">Address</label>
+          <textarea id="address" name="address"></textarea>
+        </div>
+
+        <div>
+          <label>Programming languages you know</label>
+          <div class="languages">
+            <label class="lang"><input type="radio" name="lang" value="C"> C</label>
+            <label class="lang"><input type="radio" name="lang" value="C++"> C++</label>
+            <label class="lang"><input type="radio" name="lang" value="Java"> Java</label>
+            <label class="lang"><input type="radio" name="lang" value="Python"> Python</label>
+          </div>
+        </div>
+
+        <div class="btns">
+          <button type="button" id="resetBtn" class="btn-secondary">Reset</button>
+          <button type="submit" class="btn-primary">Submit</button>
+        </div>
+
+        <div id="feedback" class="error" role="alert" aria-live="polite" style="display:none"></div>
+        <div id="result" class="output" style="display:none"></div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
