@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+    function demo()
+    {
+        let a=parseInt(document.getElementById("t").value);
+        let b=parseInt(document.getElementById("t1").value);
+        let c=a+b;
+        document.getElementById("t2").value=c;
+    }
+</script>
+</head>
+<body>
+    <input type="text"   id="t" placeholder="Enter">
+    <input type="text"   id="t1" placeholder="Enter">
+    <input type="text"   id="t2" placeholder="Result">
+    <button onclick="demo()">Click Me</button>
+</body>
+</html>

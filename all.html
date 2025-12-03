@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script>
+        function calculate(op) {
+            let a = parseFloat(document.getElementById("t").value) || 0;
+            let b = parseFloat(document.getElementById("t1").value) || 0;
+            let result;
+            switch(op) {
+                case 'add': result = a + b; break;
+                case 'sub': result = a - b; break;
+                case 'mul': result = a * b; break;
+                case 'div': result = b !== 0 ? a / b : 'Error'; break;
+                default: result = '';
+            }
+            document.getElementById("t2").value = result;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="t" placeholder="Enter first number">
+    <input type="text" id="t1" placeholder="Enter second number">
+    <input type="text" id="t2" placeholder="Result" readonly>
+    <br>
+    <button onclick="calculate('add')">Add</button>
+    <button onclick="calculate('sub')">Subtract</button>
+    <button onclick="calculate('mul')">Multiply</button>
+    <button onclick="calculate('div')">Divide</button>
+</body>
+</html>

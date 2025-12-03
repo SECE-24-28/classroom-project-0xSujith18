@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Slideshow</title>
+    <style>
+        body { font-family: Arial, Helvetica, sans-serif; margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; }
+        .slideshow { text-align:center; }
+        .slideshow img { max-width:320px; height:auto; display:block; margin:0 auto; border:1px solid #ccc; }
+        .controls { position:fixed; left:50%; transform:translateX(-50%); bottom:20px; display:flex; gap:12px; }
+        .controls button { background:#0078d4; color:#fff; border:none; padding:8px 14px; border-radius:4px; font-size:16px; cursor:pointer; }
+        .controls button:active { transform:translateY(1px); }
+    </style>
+</head>
+<body>
+    <div class="slideshow">
+        <img id="slide" src="car.jpeg" alt="Photo" width="300" height="400">
+    </div>
+
+    <div class="controls">
+        <button id="prev" aria-label="Previous image">Previous</button>
+        <button id="next" aria-label="Next image">Next</button>
+    </div>
+
+    <script>
+    (function(){
+        const images = ['car.jpeg', 'car1.jpeg', 'car2.jpeg'];
+        let index = 0;
+        const img = document.getElementById('slide');
+
+        function show(i){
+            index = (i + images.length) % images.length;
+            img.src = images[index];
+        }
+
+        document.getElementById('prev').addEventListener('click', function(){ show(index - 1); });
+        document.getElementById('next').addEventListener('click', function(){ show(index + 1); });
+
+        // keyboard support
+        document.addEventListener('keydown', function(e){
+            if(e.key === 'ArrowLeft') show(index - 1);
+            if(e.key === 'ArrowRight') show(index + 1);
+        });
+    })();
+    </script>
+</body>
+</html>
