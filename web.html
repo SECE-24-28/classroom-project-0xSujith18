@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW</title>
+</head>
+    <style>
+        *
+        {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            color: rgb(3, 0, 0);
+        }
+        .video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            z-index: -1; 
+        }
+
+        .top-nav {
+            width: 100%;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 1000;
+            text-align: right;
+        }
+        .top-nav a {
+            color: rgb(212, 211, 211);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 8px 15px;
+        }
+        .top-nav a:hover {
+            background-color: #030000;
+            border-radius: 5px;
+        }
+
+        .content {
+            margin-top: 80px;
+            padding: 20px;
+            background-color: rgba(10, 3, 3, 0.5);
+            border-radius: 10px;
+        }
+        h1, h2, p {
+            color: white;
+        }
+        .text
+        {
+            position:fixed ;
+            top:300px;
+            left:25px;
+
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #f8f7f7;
+            color: rgb(2, 1, 1);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 18px;
+        }
+        button:hover {
+            background-color: #f6f6f7;
+            letter-spacing: 4px;
+            color:#02070c
+        }
+        footer
+        {
+            margin-top: 900px;
+            left: 20px;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+        .up 
+        {
+            position: fixed;
+            top: 10px;
+            left: 20px;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <video class="video" autoplay muted loop>
+        <source src="13127448_1920_1080_60fps.mp4" type="video/mp4">
+    </video>
+    <div class="up">
+        <h1>BMW</h1>
+    </div>
+    <div class="top-nav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <div class="text">
+        <h1>Welcome to BMW</h1>
+        <br>
+        <h2>Experience the ultimate driving machine.</h2>
+        <br>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni velit molestiae earum beatae ea error voluptatem perspiciatis. Autem quasi id asperiores. Vero beatae eos ullam recusandae? Numquam dolorum commodi doloremque?  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto autem libero sequi soluta minus vitae totam sint accusamus, ad sed officiis quae harum officia animi eius assumenda! Ex excepturi quo mollitia, dolorum optio maxime nemo expedita voluptates architecto non omnis ullam ipsum veniam minima placeat repudiandae. </p>
+        <button>BUY</button>
+    </div>
+    <footer>
+        <h5>@2025 All rights derived</h5>
+    </footer>
+</body>
