@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Items Example</title>
+</head>
+<body>
+
+    <input type="text" id="inputText" placeholder="Enter">
+    <button onclick="addItem()">Add</button>
+
+    <ol id="list"></ol>
+
+    <script>
+        function addItem() {
+            let text = document.getElementById("inputText").value;
+
+            if (text.trim() === "") {
+                alert("Please enter something!");
+                return;
+            }
+
+            let li = document.createElement("li");
+            li.textContent = text;
+
+            document.getElementById("list").appendChild(li);
+
+            document.getElementById("inputText").value = ""; 
+        }
+    </script>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+    <title>Add Items Example</title>
+</head>
+<body>
+    <input type="text" id="inputText" placeholder="Enter">
+    <button onclick="addItem()">Add</button>
+    <ol id="list"></ol>
+    <script>
+        function addItem() {
+            let text = document.getElementById("inputText").value;
+            if (text.trim() === "") {
+                alert("Please enter something!");
+                return;
+            }
+            let li = document.createElement("li");
+            li.textContent = text;
+            document.getElementById("list").appendChild(li);
+            document.getElementById("inputText").value = ""; 
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+    <title>Add Items Example</title>
+</head>
+<body>
+
+    <input type="text" id="inputText" placeholder="Enter">
+    <button onclick="addItem()">Add</button>
+
+    <ol id="list"></ol>
+
+    <script>
+        function addItem() {
+            let text = document.getElementById("inputText").value;
+
+            if (text.trim() === "") {
+                alert("Please enter something!");
+                return;
+            }
+
+            let li = document.createElement("li");
+            li.textContent = text;
+
+            document.getElementById("list").appendChild(li);
+
+            document.getElementById("inputText").value = ""; 
+        }
+    </script>
+</body>
+</html>
