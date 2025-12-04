@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(135deg, #ffffff ); 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 20px;
+        }
+        .container { 
+            background: rgb(253, 251, 251); 
+            border-radius: 10px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+            width: 100%; 
+            max-width: 500px; 
+            padding: 30px;
+        }
+        h1 { 
+            color: #333; 
+            margin-bottom: 20px; 
+            text-align: center;
+        }
+        .input-group { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 20px;
+        }
+        input { 
+            flex: 1; 
+            padding: 12px; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            font-size: 14px;
+        }
+        input:focus { 
+            outline: none; 
+            border-color: #0f0f0f; 
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+        button { 
+            padding: 12px 20px; 
+            background: #0e0f0f; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            font-size: 14px; 
+            cursor: pointer; 
+            transition: background 0.3s;
+        }
+        button:hover { 
+            background: #5568d3;
+        }
+        .list-container { 
+            max-height: 400px; 
+            overflow-y: auto;
+        }
+        ul { 
+            list-style: none;
+        }
+        li { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 12px; 
+            background: #f9f9f9; 
+            margin-bottom: 8px; 
+            border-radius: 5px; 
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+        li:hover { 
+            background: #f0f0f0; 
+            transform: translateX(5px);
+        }
+        .task-text { 
+            flex: 1; 
+            color: #333;
+        }
+        .delete-btn { 
+            background: #e74c3c; 
+            padding: 6px 12px; 
+            font-size: 12px;
+        }
+        .delete-btn:hover { 
+            background: #c0392b;
+        }
+        .empty-msg { 
+            text-align: center; 
+            color: #999; 
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 To-Do List</h1>
+        
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="Enter a new task..." />
+            <button onclick="addTask()">Add</button>
+        </div>
+
+        <div class="list-container">
+            <ul id="taskList"></ul>
+            <div id="emptyMsg" class="empty-msg">No tasks yet. Add one to get started!</div>
+        </div>
+    </div>
+
+    <script>
+        const taskInput = document.getElementById('taskInput');
+        const taskList = document.getElementById('taskList');
+        const emptyMsg = document.getElementById('emptyMsg');
+
+        // Load tasks from localStorage
+        function loadTasks() {
+            const saved = localStorage.getItem('tasks');
+            return saved ? JSON.parse(saved) : [];
+        }
+
+        // Save tasks to localStorage
+        function saveTasks(tasks) {
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        // Render tasks
+        function renderTasks() {
+            const tasks = loadTasks();
+            taskList.innerHTML = '';
+            
+            if (tasks.length === 0) {
+                emptyMsg.style.display = 'block';
+            } else {
+                emptyMsg.style.display = 'none';
+                tasks.forEach((task, index) => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <span class="task-text">${escapeHtml(task)}</span>
+                        <button class="delete-btn" onclick="deleteTask(${index})">Delete</button>
+                    `;
+                    taskList.appendChild(li);
+                });
+            }
+        }
+
+        // Add new task
+        function addTask() {
+            const task = taskInput.value.trim();
+            if (!task) {
+                alert('Please enter a task!');
+                return;
+            }
+            
+            const tasks = loadTasks();
+            tasks.push(task);
+            saveTasks(tasks);
+            taskInput.value = '';
+            renderTasks();
+            taskInput.focus();
+        }
+
+        // Delete task
+        function deleteTask(index) {
+            const tasks = loadTasks();
+            tasks.splice(index, 1);
+            saveTasks(tasks);
+            renderTasks();
+        }
+
+        // Escape HTML to prevent XSS
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+
+        // Add task on Enter key
+        taskInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') addTask();
+        });
+
+        // Initial render
+        renderTasks();
+    </script>
+</body>
+</html>
