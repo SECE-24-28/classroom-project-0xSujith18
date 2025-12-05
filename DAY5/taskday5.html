@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOAD</title>
+</head>
+<body>
+    <button id="loadBtn">Load</button>
+    <div id="output"></div>
+qa
+    <script>
+        const students = [
+            { name: "ALICE", city: "NEWYORK", mail: "alice@gmail.com" },
+            { name: "IN", city: "GERMAN", mail: "in@gmail.com" },
+            { name: "THE", city: "PARIS", mail: "the@gmail.com" },
+            { name: "BODERLAND", city: "TOKYO", mail: "boderland@gmail.com" }
+        ];
+        const btn = document.getElementById("loadBtn");
+        const output = document.getElementById("output");
+        btn.onclick = function() {
+            output.innerHTML = "<b>Loading...</b>";
+            btn.disabled = true;
+            setTimeout(() => {
+                output.innerHTML = "";
+                let i = 0;
+                const interval = setInterval(() => {
+                    if (i < students.length) {
+                        const stu = students[i];
+                        const p = document.createElement("p");
+                        p.innerHTML = `<b>${stu.name}</b> - ${stu.city} - ${stu.mail}`;
+                        output.appendChild(p);
+                        i++;
+                    } 
+                    else
+                    {
+                        clearInterval(interval) ;
+                        btn.disabled = false ;
+                    }
+                }, 1000);
+            }, 2000);
+        };
+    </script>
+</body>
+</html>
