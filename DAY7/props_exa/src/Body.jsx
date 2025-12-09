@@ -3,7 +3,7 @@ import React from 'react'
 export const Body = ({list,handleCheck,handleDelete}) => {
   return (
     <div>
-                <ul>
+        <ul>
         {
            list.map((ls)=>
             <li key={ls.id}>
