@@ -8,7 +8,7 @@ import { Footer } from './Footer';
 
 function App() 
 {
-      const [list,setList] =useState([
+      const [list,setList] = useState([
         {id:1,sname:"Virat",fee:true},
         {id:2,sname:"Sachin",fee:false},
         {id:3,sname:"Raja",fee:true}

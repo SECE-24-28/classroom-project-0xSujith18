@@ -1,21 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Header from './Header';
+import { Body } from './Body';
+import { Footer } from './Footer';
+import { StudentProvider, useStudent } from './StudentContext';
 
-function App() {
-const Header = (title.dept) => {
-
-}
+const StudentControls = () => {
+  const { newStudent, setNewStudent, search, setSearch, handleAdd } = useStudent();
 
   return (
     <>
-    <Header title={"Student List"}
-    dept={"CSE"}
-    year={2025}
-    />
+      <div>
+        <input 
+          type="text" 
+          placeholder="Add student" 
+          value={newStudent} 
+          onChange={(e) => setNewStudent(e.target.value)}
+        />
+        <button onClick={handleAdd}>Add</button>
+      </div>
+      <div>
+        <input 
+          type="text" 
+          placeholder="Search" 
+          value={search} 
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
     </>
+  );
+};
+
+function App() {
+  return (
+    <StudentProvider>
+      <Header title="Student List" />
+      <StudentControls />
+      <Body />
+      <Footer />
+    </StudentProvider>
   )
 }
-
 export default App
