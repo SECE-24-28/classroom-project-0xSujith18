@@ -1,49 +1,28 @@
-import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 import './App.css'
-import api from './api/Post'
 import Home from './Home.jsx'
 import Search from './Search'
 import AddPost from './AddPost.jsx'
+import DataContext from './DataContext'
 
 function App() {
-  const [post, setpost] = useState([])
-  const [search, setsearch] = useState('')
-  const[searchResults,setSearchResults]=useState([])
-  const[title,settitle]=useState('')
-  const[content,setcontent]=useState('')
+  const { search, setSearch, searchResult, title, setTitle, body, setBody, handleSubmit, num } = useContext(DataContext)
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const res = await api.get('/feedback')
-        setpost(res.data || [])
-      } catch (error) {
-        console.error('Error fetching posts:', error)
-        setpost([])
-      }
-    }
-    fetchPosts();
-  }, [])
-
-useEffect(()=>
-{
-  const filterd=post.filter((post)=>
-    (post.title).includes(search)
-)
-setSearchResults(filterd)
-},[post,search]
-)
-
-return(
-  <>
-
-<Search search={search} setsearch={setsearch}
-  />
-  <hr/>
-  <AddPost/>
-    <Home posts={searchResults} />
-  </>
-)
+  return(
+    <>
+      <h2>Num: {num}</h2>
+      <Search search={search} setSearch={setSearch} />
+      <hr/>
+      <AddPost 
+        title={title} 
+        setTitle={setTitle}
+        body={body}
+        setBody={setBody}
+        handleSubmit={handleSubmit}
+      />
+      <Home posts={searchResult} />
+    </>
+  )
 }
 
 export default App

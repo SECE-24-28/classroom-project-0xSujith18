@@ -1,3 +1,5 @@
+import React from 'react'
+
 const Home = ({posts}) => {
     return(
         <div>
@@ -6,7 +8,8 @@ const Home = ({posts}) => {
           <div key={post.id}>
             <h3>{post.id}</h3>
             <h3>{post.title}</h3>
-            <p>{post.content}</p>
+            <p>{post.body || post.content}</p>
+            <p>{post.datetime}</p>
             <hr />
           </div>
         )) : <p>No posts found</p>
