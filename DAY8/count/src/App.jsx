@@ -7,8 +7,8 @@ import { DataProvider } from "./DataContext";
 function App() {
   return (
     <DataProvider>
-      <One />
       <Two />
+      <One />
       <Three />
     </DataProvider>
   );

@@ -25,7 +25,7 @@
 
     <script>
     (function(){
-        const images = ['car.jpeg', 'car1.jpeg', 'car2.jpeg'];
+        const images = ['car.jpeg', 'car2.jpg', 'car3.jpg'];
         let index = 0;
         const img = document.getElementById('slide');
 
@@ -36,8 +36,6 @@
 
         document.getElementById('prev').addEventListener('click', function(){ show(index - 1); });
         document.getElementById('next').addEventListener('click', function(){ show(index + 1); });
-
-        // keyboard support
         document.addEventListener('keydown', function(e){
             if(e.key === 'ArrowLeft') show(index - 1);
             if(e.key === 'ArrowRight') show(index + 1);

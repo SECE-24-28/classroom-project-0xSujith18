@@ -119,18 +119,15 @@
         const taskList = document.getElementById('taskList');
         const emptyMsg = document.getElementById('emptyMsg');
 
-        // Load tasks from localStorage
         function loadTasks() {
             const saved = localStorage.getItem('tasks');
             return saved ? JSON.parse(saved) : [];
         }
 
-        // Save tasks to localStorage
         function saveTasks(tasks) {
             localStorage.setItem('tasks', JSON.stringify(tasks));
         }
 
-        // Render tasks
         function renderTasks() {
             const tasks = loadTasks();
             taskList.innerHTML = '';
@@ -150,7 +147,6 @@
             }
         }
 
-        // Add new task
         function addTask() {
             const task = taskInput.value.trim();
             if (!task) {
@@ -166,7 +162,7 @@
             taskInput.focus();
         }
 
-        // Delete task
+ 
         function deleteTask(index) {
             const tasks = loadTasks();
             tasks.splice(index, 1);
@@ -174,7 +170,7 @@
             renderTasks();
         }
 
-        // Escape HTML to prevent XSS
+
         function escapeHtml(text) {
             const map = {
                 '&': '&amp;',

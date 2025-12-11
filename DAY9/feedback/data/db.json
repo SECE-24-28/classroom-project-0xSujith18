@@ -1,0 +1,26 @@
+{
+    "feedback":
+    [
+        {
+            "id": 1,
+            "title": "Great Service",
+            "content": "I had an excellent experience with the customer service team. They were very helpful and resolved my issue quickly."
+        },
+        {
+            "id": 2,
+            "title": "Average Experience",      
+            "content": "The service was okay, but there is room for improvement. The wait time was longer than expected."
+        },
+        {
+            "id": 3,
+            "title": "Excellent Customer Service",
+            "content": "I had a fantastic experience with the customer service team. They were very responsive and helpful."
+        },
+        {
+            "id": 4,
+            "title": "Poor Service",
+            "content": "I am disappointed with the service I received. My issue was not resolved and I had to wait a long time for assistance."
+        }  
+        
+    ]
+}

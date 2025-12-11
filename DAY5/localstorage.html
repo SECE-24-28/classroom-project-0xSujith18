@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Local Storage</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        input {
+            background-color: white;
+            color: black;
+            border: 1px solid white;
+            padding: 5px;
+            margin: 5px;
+        }
+        button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        label {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Local Storage</h2>
+
+<div class="form-container">
+    <div class="form-group">
+        <label>Name:</label>
+        <input type="text" id="nameInput">
+    </div>
+    
+    <div class="form-group">
+        <label>Age:</label>
+        <input type="number" id="ageInput">
+    </div>
+    
+    <button id="saveBtn">Save</button>
+</div>
+
+<script>
+document.getElementById("saveBtn").onclick = function () {
+    let name = document.getElementById("nameInput").value;
+    let age = document.getElementById("ageInput").value;
+
+    if (name.trim() === "" || age.trim() === "") {
+        alert("Please fill both fields");
+        return;
+    }
+
+    localStorage.setItem("user_name", name);
+    localStorage.setItem("user_age", age);
+
+    alert("Saved to Local Storage!");
+};
+</script>
+
+</body>
+</html>
