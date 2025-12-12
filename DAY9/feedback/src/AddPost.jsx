@@ -14,7 +14,7 @@ const AddPost = ({title, setTitle, body, setBody, handleSubmit}) => {
               value={body}
               onChange={(e) => setBody(e.target.value)}
             />
-            <button type="submit">Add Post</button>
+            <button type="submit">Save</button>
         </form>
     </div>
   )

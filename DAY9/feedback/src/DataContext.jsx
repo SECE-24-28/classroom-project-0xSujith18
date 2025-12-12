@@ -48,7 +48,8 @@ export const DataProvider=({children})=>
       setPosts(newList)
       setTitle('')
       setBody('')
-    } catch (error) {
+    } catch (error) 
+    {
       console.error('Error adding post:', error)
     }
   }

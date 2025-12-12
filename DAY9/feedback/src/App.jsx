@@ -10,7 +10,6 @@ function App() {
 
   return(
     <>
-      <h2>Num: {num}</h2>
       <Search search={search} setSearch={setSearch} />
       <hr/>
       <AddPost 
