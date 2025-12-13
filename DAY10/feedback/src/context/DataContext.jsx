@@ -31,7 +31,7 @@ export const DataProvider = ({ children }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const id =(posts.length)?String(Number(posts[posts.length-1].id)+1):String(1);
+    const id = (posts.length+1).toString();
     console.log(id);
 
     const newObj = {
@@ -50,23 +50,10 @@ export const DataProvider = ({ children }) => {
   };
 
   const handleDelete = async (id) => {
-    const postExists = posts.find(post => post.id == id);
-    if (!postExists) {
-      alert("Post not found");
-      navigate("/");
-      return;
-    }
-    
-    try {
       await api.delete(`/feedback/${id}`);
       alert("Data Deleted Successfully");
-      const newLists = posts.filter((post) => post.id != id);
-      setPosts(newLists);
+      fetchData();
       navigate("/");
-    } catch (error) {
-      alert("Error deleting post: Post not found");
-      navigate("/");
-    }
   };
 
   return (
