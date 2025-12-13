@@ -1,0 +1,9 @@
+{
+    "courses": [
+        {
+            "cid": 1,
+            "cname": "Java",
+            "cdur": "2 month"
+        }
+    ]
+}
