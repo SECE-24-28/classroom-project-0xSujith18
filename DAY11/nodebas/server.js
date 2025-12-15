@@ -21,6 +21,7 @@ app.get("/api/courses/:id", (req, res) => {
     res.json(course);
 });
 
+
 app.post("/api/courses", (req, res) => {
     const { cname, cdur } = req.body;
     const cid = courses.length ? courses[courses.length - 1].cid + 1 : 1;
