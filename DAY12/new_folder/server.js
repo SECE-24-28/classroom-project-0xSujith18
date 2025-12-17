@@ -23,7 +23,7 @@ app.get("/api/courses", async (req, res) => {
     }
 });
 
-app.post("/api/course", async (req, res) => {
+app.post("/api/courses", async (req, res) => {
     try {
         const {title,duration} = req.body;
         const course = new mycourse({title,duration});
